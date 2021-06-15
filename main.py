@@ -16,6 +16,8 @@ def makeSoftProject(appName):
 
     touch(os.path.join(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile'), 'index.html'))
     touch(os.path.join(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile'), 'header.js'))
+    touch(os.path.join(os.path.join(os.getcwd(), appName) , 'projectsettings.py'))
+    touch(os.path.join(os.path.join(os.path.join(os.getcwd(), appName) , 'templates'), 'main.html'))
 
     with open(os.path.join(sys.path[0], 'staticfiles/soft/header.js'), 'r') as js:
         with open(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile/header.js'), 'w') as usrJS:
@@ -24,13 +26,25 @@ def makeSoftProject(appName):
     with open(os.path.join(sys.path[0], 'staticfiles/soft/index.html'), 'r') as html:
         with open(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile/index.html'), 'w') as usrhtml:
             usrhtml.write(html.read())
-    
+
+    with open(os.path.join(sys.path[0], 'staticfiles/soft/projectsettings.py'), 'r') as settings:
+        with open(os.path.join(os.path.join(os.getcwd(), appName) , 'projectsettings.py'), 'w') as usrsetting:
+            usrsetting.write(settings.read())
+
+    with open(os.path.join(sys.path[0], 'staticfiles/soft/main.html'), 'r') as main:
+        with open(os.path.join(os.path.join(os.getcwd(), appName) , 'templates/main.html'), 'w') as usrmain:
+            usrmain.write(main.read())
+
+    usrmain.close()
+    main.close()
+    usrsetting.close()
+    settings.close()
     usrhtml.close()
     html.close()
     usrJS.close()
     js.close()
 
-    
+
 def _PageType():
     pageType = input('which type of application you want (1: Soft, 2: Strong), press 1 or 2: ')
     
@@ -48,3 +62,5 @@ def _PageType():
 argv = sys.argv
 if 'startproject' in argv:
     _PageType()
+
+""" updatesettings """
