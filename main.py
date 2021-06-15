@@ -17,11 +17,11 @@ def makeSoftProject(appName):
     touch(os.path.join(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile'), 'index.html'))
     touch(os.path.join(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile'), 'header.js'))
 
-    with open(os.path.join(sys.path[0], 'staticfiles/header.js'), 'r') as js:
+    with open(os.path.join(sys.path[0], 'staticfiles/soft/header.js'), 'r') as js:
         with open(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile/header.js'), 'w') as usrJS:
             usrJS.write(js.read())
 
-    with open(os.path.join(sys.path[0], 'staticfiles/index.html'), 'r') as html:
+    with open(os.path.join(sys.path[0], 'staticfiles/soft/index.html'), 'r') as html:
         with open(os.path.join(os.path.join(os.getcwd(), appName) , 'headersfile/index.html'), 'w') as usrhtml:
             usrhtml.write(html.read())
     
